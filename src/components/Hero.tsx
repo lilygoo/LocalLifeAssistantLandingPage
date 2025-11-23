@@ -1,12 +1,11 @@
 import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
 import coolCat from "../assets/b7eaa7c78c5ed010f34d3ae53613f19ef55cf55a.png";
 import coolDog from "../assets/4400b38931169e3aa9f0c4c8187f3240c78b88c6.png";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden" style={{ background: `linear-gradient(to bottom, #E9E6DF, #FCFBF9)` }}>
-      <div className="mx-auto max-w-4xl px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-4xl px-6 py-12 sm:py-16 pb-8 sm:pb-10">
         <div className="text-center flex flex-col items-center gap-8">
           <div className="inline-block">
             <div className="text-white px-6 py-2 rotate-[-2deg] shadow-[4px_4px_0px_0px_rgba(34,26,19,0.3)]" style={{ backgroundColor: '#B46A55' }}>
@@ -19,14 +18,18 @@ export function Hero() {
               LocoMoco
             </h1>
             <p className="text-2xl" style={{ color: '#221A13', fontFamily: 'Aladin, cursive' }}>
-              Catch the Vibe. Locally
+              Catch the Vibe. Locally.
             </p>
           </div>
           
-          <p className="max-w-2xl border-4 p-6 shadow-[8px_8px_0px_0px_rgba(34,26,19,1)] bg-white" style={{ color: '#5E574E', borderColor: '#221A13' }}>
-            The retro-cool way to track your stuff. Simple, fun, and totally rad. 
-            No bloat, just vibes. 🌈
-          </p>
+          <div className="max-w-2xl border-4 p-8 shadow-[8px_8px_0px_0px_rgba(34,26,19,1)] bg-white" style={{ borderColor: '#221A13' }}>
+            <p style={{ color: '#5E574E' }}>
+              The fun, zero-effort way to discover what's happening around you.
+            </p>
+            <p className="mt-4" style={{ color: '#221A13' }}>
+              No scrolling. No planning. Just vibes.
+            </p>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-6 mt-4">
             <a href="https://locomoco.top" target="_blank" rel="noopener noreferrer">

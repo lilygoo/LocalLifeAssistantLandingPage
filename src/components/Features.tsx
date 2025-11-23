@@ -1,32 +1,32 @@
-import { Zap, Heart, Star } from "lucide-react";
+import { Zap, Heart, Sparkles } from "lucide-react";
 
 const features = [
   {
     icon: Zap,
     title: "Super Fast",
-    description: "Like dial-up, but actually fast. Lightning quick performance.",
+    description: "Tell us your vibe → boom, plans appear.",
     bgColor: "#76C1B2",
   },
   {
     icon: Heart,
     title: "Easy Peasy",
-    description: "So simple, your grandma could use it. (We love grandmas.)",
+    description: "No more tab-hopping or endless searches. Just pick and go.",
     bgColor: "#B46A55",
   },
   {
-    icon: Star,
-    title: "Totally Rad",
-    description: "Retro vibes meet modern tech. The best of both worlds.",
+    icon: Sparkles,
+    title: "Actually Fun",
+    description: "After-work hang? Last-minute plan? Weekend adventure? Sorted.",
     bgColor: "#76C1B2",
   },
 ];
 
 export function Features() {
   return (
-    <section className="py-20 sm:py-24" style={{ backgroundColor: '#FCFBF9' }}>
+    <section className="py-12 sm:py-16" style={{ backgroundColor: '#E9E6DF' }}>
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="mb-4" style={{ color: '#221A13', textShadow: '2px 2px 0px rgba(118, 193, 178, 0.3)' }}>
+        <div className="mx-auto max-w-2xl text-center mb-8">
+          <h2 className="mb-4 text-2xl" style={{ color: '#221A13', textShadow: '2px 2px 0px rgba(118, 193, 178, 0.3)', fontFamily: 'Aladin, cursive' }}>
             Why It's Awesome
           </h2>
         </div>

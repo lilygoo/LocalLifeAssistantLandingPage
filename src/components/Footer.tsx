@@ -5,8 +5,11 @@ export function Footer() {
     <footer className="text-white border-t-8" style={{ backgroundColor: '#221A13', borderColor: '#76C1B2' }}>
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="text-center space-y-4">
-          <h3 style={{ color: '#76C1B2' }}>LocoMoco</h3>
-          <p className="flex items-center justify-center gap-2" style={{ color: '#E9E6DF' }}>
+          <h3 style={{ color: '#76C1B2', fontFamily: 'Aladin, cursive' }}>LocoMoco</h3>
+          <p style={{ color: '#E9E6DF', fontFamily: 'Aladin, cursive' }}>
+            Catch the Vibe. Locally.
+          </p>
+          <p className="flex items-center justify-center gap-2 pt-4" style={{ color: '#E9E6DF' }}>
             Made with <Heart className="h-4 w-4" style={{ color: '#B46A55', fill: '#B46A55' }} /> and retro vibes
           </p>
           <div className="flex justify-center gap-6" style={{ color: '#E9E6DF' }}>

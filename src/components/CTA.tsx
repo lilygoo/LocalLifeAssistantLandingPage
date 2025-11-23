@@ -17,10 +17,10 @@ export function CTA() {
       <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
         <div className="bg-white border-4 p-10 shadow-[12px_12px_0px_0px_rgba(34,26,19,1)]" style={{ borderColor: '#221A13' }}>
           <h2 className="mb-6" style={{ color: '#221A13' }}>
-            Ready to Get Groovy?
+            Ready to Catch the Vibe?
           </h2>
           <p className="mb-8" style={{ color: '#5E574E' }}>
-            Join the cool kids. Sign up for early access and be part of the retro revolution! ✌️
+            Join early access and be the first to unlock your city's hidden fun. ✌️
           </p>
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <Input
@@ -42,7 +42,7 @@ export function CTA() {
             </Button>
           </form>
           <p className="mt-6" style={{ color: '#5E574E' }}>
-            No spam, just good vibes 🌟
+            No spam, just good vibes. 🌟
           </p>
         </div>
       </div>
