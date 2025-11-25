@@ -30,12 +30,13 @@ function DialogClose({
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
-function DialogOverlay({
-  className,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+const DialogOverlay = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(({ className, ...props }, ref) => {
   return (
     <DialogPrimitive.Overlay
+      ref={ref}
       data-slot="dialog-overlay"
       className={cn(
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
@@ -44,33 +45,81 @@ function DialogOverlay({
       {...props}
     />
   );
-}
+});
+DialogOverlay.displayName = "DialogOverlay";
 
-function DialogContent({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof DialogPrimitive.Content>) {
+const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+>(({ className, children, ...props }, ref) => {
   return (
-    <DialogPortal data-slot="dialog-portal">
-      <DialogOverlay />
-      <DialogPrimitive.Content
-        data-slot="dialog-content"
-        className={cn(
-          "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        <DialogPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
-          <XIcon />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
-      </DialogPrimitive.Content>
-    </DialogPortal>
+    <>
+      <style>{`
+        @keyframes dialogContentZoomIn {
+          from {
+            transform: translate(-50%, -50%) scale(0.95) !important;
+            opacity: 0;
+          }
+          to {
+            transform: translate(-50%, -50%) scale(1) !important;
+            opacity: 1;
+          }
+        }
+        @keyframes dialogContentZoomOut {
+          from {
+            transform: translate(-50%, -50%) scale(1) !important;
+            opacity: 1;
+          }
+          to {
+            transform: translate(-50%, -50%) scale(0.95) !important;
+            opacity: 0;
+          }
+        }
+        div[data-slot="dialog-content"] {
+          position: fixed !important;
+          top: 50vh !important;
+          left: 50vw !important;
+          transform: translate(-50%, -50%) !important;
+          margin: 0 !important;
+        }
+        div[data-slot="dialog-content"][data-state="open"] {
+          animation: dialogContentZoomIn 200ms ease-out;
+          opacity: 1 !important;
+          transform: translate(-50%, -50%) scale(1) !important;
+        }
+        div[data-slot="dialog-content"][data-state="closed"] {
+          animation: dialogContentZoomOut 200ms ease-in;
+        }
+      `}</style>
+      <DialogPortal data-slot="dialog-portal">
+        <DialogOverlay />
+        <DialogPrimitive.Content
+          ref={ref}
+          data-slot="dialog-content"
+          className={cn(
+            "bg-background data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed z-[100] grid w-full max-w-[calc(100%-2rem)] gap-4 rounded-lg border p-6 shadow-lg duration-200 sm:max-w-lg",
+            className,
+          )}
+          {...props}
+          style={{
+            top: '50vh',
+            left: '50vw',
+            transform: 'translate(-50%, -50%)',
+            margin: 0,
+            ...props.style,
+          }}
+        >
+          {children}
+          <DialogPrimitive.Close className="ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-xs opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4">
+            <XIcon />
+            <span className="sr-only">Close</span>
+          </DialogPrimitive.Close>
+        </DialogPrimitive.Content>
+      </DialogPortal>
+    </>
   );
-}
+});
+DialogContent.displayName = "DialogContent";
 
 function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
