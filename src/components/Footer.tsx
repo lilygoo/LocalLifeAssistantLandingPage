@@ -17,21 +17,14 @@ export function Footer() {
             <p className="flex items-center justify-center gap-2 pt-4" style={{ color: '#E9E6DF' }}>
               Made with <Heart className="h-4 w-4" style={{ color: '#B46A55', fill: '#B46A55' }} />
             </p>
-            <div className="flex justify-center gap-6" style={{ color: '#E9E6DF' }}>
-              <a href="#" className="hover:opacity-80 transition-opacity" style={{ color: '#E9E6DF' }}>About</a>
-              <span>•</span>
-              <a href="#" className="hover:opacity-80 transition-opacity" style={{ color: '#E9E6DF' }}>Contact</a>
-              <span>•</span>
-              <button
+            <p className="pt-4" style={{ color: '#5E574E' }}>
+              © 2025 LocoMoco <span>•</span> <button
                 onClick={() => setPrivacyOpen(true)}
                 className="hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-none p-0"
-                style={{ color: '#E9E6DF' }}
+                style={{ color: '#5E574E' }}
               >
                 Privacy
               </button>
-            </div>
-            <p className="pt-4" style={{ color: '#5E574E' }}>
-              © 2025 LocoMoco 
             </p>
           </div>
         </div>
