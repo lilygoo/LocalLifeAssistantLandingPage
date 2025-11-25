@@ -10,7 +10,7 @@ export function Footer() {
             Catch the Vibe. Locally.
           </p>
           <p className="flex items-center justify-center gap-2 pt-4" style={{ color: '#E9E6DF' }}>
-            Made with <Heart className="h-4 w-4" style={{ color: '#B46A55', fill: '#B46A55' }} /> and retro vibes
+            Made with <Heart className="h-4 w-4" style={{ color: '#B46A55', fill: '#B46A55' }} />
           </p>
           <div className="flex justify-center gap-6" style={{ color: '#E9E6DF' }}>
             <a href="#" className="hover:opacity-80 transition-opacity" style={{ color: '#E9E6DF' }}>About</a>
@@ -20,7 +20,7 @@ export function Footer() {
             <a href="#" className="hover:opacity-80 transition-opacity" style={{ color: '#E9E6DF' }}>Privacy</a>
           </div>
           <p className="pt-4" style={{ color: '#5E574E' }}>
-            © 2025 LocoMoco • Stay Groovy ✨
+            © 2025 LocoMoco 
           </p>
         </div>
       </div>
